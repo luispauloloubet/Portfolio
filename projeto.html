@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study: Risco de Crédito</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="projeto-header-modern">
+      <div class="container-central">
+        <span class="category-tag">Fintech & Data Science</span>
+        <h1>Análise de Inadimplência: Cartão de Crédito</h1>
+        <p class="subtitulo-modern">
+          Identificando padrões comportamentais e preditores de risco em uma
+          base de 30.000 clientes.
+        </p>
+        <div class="tech-stack">
+          <span><i class="fab fa-python"></i> Python</span>
+          <span><i class="fas fa-table"></i> Pandas</span>
+          <span><i class="fas fa-chart-bar"></i> Seaborn</span>
+          <span><i class="fas fa-file-excel"></i> Excel</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-central">
+      <section class="overview-grid">
+        <div class="info-card">
+          <h3><i class="fas fa-exclamation-circle"></i> O Problema</h3>
+          <p>
+            Instituições financeiras perdem milhões com <em>default</em>. O
+            desafio foi identificar quais variáveis — demográficas ou
+            comportamentais — realmente antecipam a inadimplência.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3><i class="fas fa-check-circle"></i> A Solução</h3>
+          <p>
+            Processamento de dados do Kaggle com Engenharia de Variáveis para
+            criar métricas de utilização de limite e taxas de pagamento real
+            versus faturado.
+          </p>
+        </div>
+      </section>
+
+      <section class="insight-section">
+        <h2 class="section-title">Análise de Comportamento</h2>
+
+        <div class="insight-row">
+          <div class="insight-text">
+            <span class="insight-number">01</span>
+            <h3>O Ponto de Inflexão: 3 Atrasos</h3>
+            <p>
+              A variável mais crítica identificada foi o histórico de atrasos. A
+              probabilidade de inadimplência sofre um salto estrutural após a
+              <strong>terceira fatura em atraso</strong>.
+            </p>
+            <ul class="highlights">
+              <li>Indicador chave para sistemas de alerta precoce.</li>
+              <li>Sugere perda de controle financeiro do cliente.</li>
+            </ul>
+          </div>
+          <div class="insight-visual">
+            <img
+              src="img/default_by_delay_payments.png"
+              alt="Gráfico de Atrasos"
+            />
+          </div>
+        </div>
+
+        <div class="insight-row reverse">
+          <div class="insight-text">
+            <span class="insight-number">02</span>
+            <h3>Utilização do Crédito</h3>
+            <p>
+              Clientes que utilizam acima de
+              <strong>90% do limite</strong> possuem uma taxa de inadimplência
+              duas vezes maior que aqueles que consomem até 30%.
+            </p>
+          </div>
+          <div class="insight-visual">
+            <img
+              src="img/default_by_utilization_limit.png"
+              alt="Gráfico de Utilização"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="conclusao-box">
+        <h2>Conclusão & Próximos Passos</h2>
+        <div class="grid-three">
+          <div class="conclusao-item">
+            <h4>Foco no Comportamento</h4>
+            <p>
+              Variáveis dinâmicas superam dados estáticos (como idade/sexo) na
+              predição de risco.
+            </p>
+          </div>
+          <div class="conclusao-item">
+            <h4>Thresholds</h4>
+            <p>
+              Definição de limites de risco automáticos para clientes com 3 ou
+              mais atrasos.
+            </p>
+          </div>
+          <div class="conclusao-item">
+            <h4>Modelagem</h4>
+            <p>
+              Próxima etapa: Implementação de um modelo de Random Forest para
+              automação da análise.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-contato">
+      <hr class="divider" />
+      <h2>Gostou da análise? Entre em contato.</h2>
+      <div class="contato-icons">
+        <a href="mailto:paulosantiago240@gmail.com"
+          ><i class="fa-solid fa-envelope"></i
+        ></a>
+        <a href="https://wa.me/5567992562363"
+          ><i class="fa-brands fa-whatsapp"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/luis-paulo-loubet-557712179"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+      </div>
+    </footer>
+
+    <button class="back-to-top">↑</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
