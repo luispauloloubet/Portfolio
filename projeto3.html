@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study: ITUB4 Predictive Analysis</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="projeto-header-modern">
+      <div class="container-central">
+        <span class="category-tag">Finanças Quantitativas & ML</span>
+        <h1>Análise Preditiva: ITUB4 (Itaú Unibanco)</h1>
+        <p class="subtitulo-modern">
+          Aplicação de Machine Learning para previsão de ativos financeiros e
+          automação de sinais de trading.
+        </p>
+        <div class="tech-stack">
+          <span><i class="fab fa-python"></i> Python</span>
+          <span><i class="fas fa-table"></i> Pandas</span>
+          <span><i class="fas fa-robot"></i> Scikit-learn</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-central">
+      <section class="overview-grid">
+        <div class="info-card">
+          <h3><i class="fas fa-bullseye"></i> Objetivo</h3>
+          <p>
+            O objetivo deste projeto foi desenvolver um modelo capaz de prever o
+            fechamento diário da ITUB4.SA, utilizando não apenas preços brutos,
+            mas o <strong>comportamento estatístico</strong> do ativo através de
+            indicadores técnicos de momentum e volatilidade.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>
+            <i class="fas fa-chart-line"></i> Análise Técnica e Indicadores
+          </h3>
+          <p>
+            Abaixo, a visualização dos indicadores que serviram como base para
+            as variáveis preditoras (features) do modelo.
+          </p>
+        </div>
+      </section>
+
+      <section class="insights">
+        <h2 class="sobre-titulo">Indicadores Técnicos</h2>
+
+        <div class="insight-row">
+          <div class="insight-text">
+            <span class="insight-number">01</span>
+            <h3>Médias Móveis</h3>
+            <p>
+              As médias móveis são um filtro de tendência que suavizam as
+              flutuações de preço ao longo do tempo. Podem ser
+              <strong>Médias Simples</strong> ou
+              <strong>Médias Móveis Exponenciais</strong>.
+            </p>
+          </div>
+          <div class="insight-visual">
+            <img src="img/moving_averages.png" alt="Gráfico de Atrasos" />
+          </div>
+        </div>
+
+        <div class="insight-row reverse">
+          <div class="insight-text">
+            <span class="insight-number">02</span>
+            <h3>ADX: Average Directional Index</h3>
+            <p>
+              Indicador que mede a força de uma tendência. Ele mostra se há uma
+              <strong>tendência clara</strong> ou se o ativo está
+              <strong>lateralizado</strong>.
+            </p>
+          </div>
+          <div class="insight-visual">
+            <img src="img/adx.png" alt="Gráfico de Utilização" />
+          </div>
+        </div>
+
+        <div class="insight-row">
+          <div class="insight-text">
+            <span class="insight-number">03</span>
+            <h3>Bandas de Bollinger</h3>
+            <p>
+              É um indicador de <strong>volatilidade</strong> que mede o quanto
+              um ativo se move em relação a sua média simples, formando um
+              gráfico de bandas em que os limites são a média mais dois desvios
+              e a média menos dois desvios.
+            </p>
+            <p>Quando as bandas se abrem, maior o movimento do ativo.</p>
+          </div>
+          <div class="insight-visual">
+            <img src="img/bollinger_bands.png" alt="Gráfico de Utilização" />
+          </div>
+        </div>
+      </section>
+
+      <section class="insight-section">
+        <h2 class="sobre-titulo">Modelo de Regressão Linear</h2>
+        <p>
+          As features do modelo de <strong>Regressão Linear</strong> foram
+          baseadas nos indicadores técnicos apresentados, adaptando-os para um
+          treinamento mais efetivo do modelo.
+        </p>
+
+        <div class="insight-ml">
+          <img
+            src="img/real_vs_previsao_M2.png"
+            alt="Regressão Linear: Real vs Previsão"
+            class="img-analise"
+          />
+        </div>
+
+        <div class="data-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Impacto</th>
+                <th>Justificativa Técnica</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Distance_SMA_20</td>
+                <td>Alto</td>
+                <td>Mede o esticamento do preço em relação à média.</td>
+              </tr>
+              <tr>
+                <td>EMA_9 / EMA_21</td>
+                <td>Moderado</td>
+                <td>Captura a aceleração da tendência de curto prazo.</td>
+              </tr>
+              <tr>
+                <td>Bollinger thikness</td>
+                <td>Baixo</td>
+                <td>Avalia o quanto um ativo está variando.</td>
+              </tr>
+              <tr>
+                <td>ADX</td>
+                <td>Filtro</td>
+                <td>Isola momentos de ruído lateral do mercado.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="conclusao-box">
+        <h2>Conclusão & Próximos Passos</h2>
+        <div class="grid-three">
+          <div class="conclusao-item">
+            <h4>Modelagem</h4>
+            <p>
+              As variáveis de média tem maior impacto na regressão linear. O
+              modelo possui um <strong>R²</strong> de 0.89 e um
+              <strong>MAE</strong> de R$ 0,69.
+            </p>
+          </div>
+          <div class="conclusao-item">
+            <h4>Comportamento</h4>
+            <p>
+              O modelo tende a ser <strong>conservador</strong>, prevendo quedas
+              mais suaves e altas mais lentas. Provável influência das médias.
+            </p>
+          </div>
+          <div class="conclusao-item">
+            <h4>Automação</h4>
+            <p>
+              Próxima etapa: Implementação uma automação que notifique clientes
+              via <strong>Telegram</strong> quando o modelo prever momentos de
+              alta.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="action-buttons">
+      <a href="index.html" class="btn-modern back">
+        <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+      </a>
+      <a
+        href="https://github.com/luispauloloubet/projeto-itub4-investimentos"
+        target="_blank"
+        class="btn-modern github"
+      >
+        <i class="fab fa-github"></i> Ver Repositório
+      </a>
+      <a href="#" class="btn-modern pdf">
+        <i class="fas fa-file-pdf"></i> Relatório Executivo
+      </a>
+    </div>
+
+    <footer class="footer-contato">
+      <hr class="divider" />
+      <h2>Gostou da análise? Entre em contato.</h2>
+      <div class="contato-icons">
+        <a href="mailto:paulosantiago240@gmail.com"
+          ><i class="fa-solid fa-envelope"></i
+        ></a>
+        <a href="https://wa.me/5567992562363"
+          ><i class="fa-brands fa-whatsapp"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/luis-paulo-loubet-557712179"
+          target="_blank"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+      </div>
+    </footer>
+
+    <button class="back-to-top">↑</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

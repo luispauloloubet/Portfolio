@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Case Study: Risco de Crédito</title>
+    <title>Case Study: Bank Customer Churn</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -14,20 +14,19 @@
       rel="stylesheet"
     />
   </head>
-
   <body>
     <header class="projeto-header-modern">
       <div class="container-central">
-        <span class="category-tag">Fintech & Data Science</span>
-        <h1>Análise de Churn: o que leva um cliente a abandonar seu banco?</h1>
+        <span class="category-tag">Banking & Data Science</span>
+        <h1>Análise de Churn: Retenção de Clientes Bancários</h1>
         <p class="subtitulo-modern">
-          Identificando tendências e comportamentos em uma base de dados de
-          10.000 clientes de um banco multinacional.
+          Identificando os principais fatores que levam ao cancelamento de
+          contas e propondo estratégias de retenção baseadas em dados.
         </p>
         <div class="tech-stack">
           <span><i class="fab fa-python"></i> Python</span>
           <span><i class="fas fa-table"></i> Pandas</span>
-          <span><i class="fas fa-chart-bar"></i> Seaborn</span>
+          <span><i class="fas fa-chart-line"></i> Matplotlib & Seaborn</span>
         </div>
       </div>
     </header>
@@ -35,95 +34,117 @@
     <main class="container-central">
       <section class="overview-grid">
         <div class="info-card">
-          <h3><i class="fas fa-exclamation-circle"></i> O Problema</h3>
+          <h3><i class="fas fa-bullseye"></i> O Problema</h3>
           <p>
-            Para o um banco, é muito mais barato reter um cliente do que
-            consquistar um novo. O desafio foi identificar quais variáveis —
-            demográficas ou comportamentais — realmente antecipam a saída de um
-            cliente.
+            O churn de clientes é um dos maiores desafios do setor bancário.
+            Perder um cliente ativo custa significativamente mais do que reter
+            um atual através de estratégias baseadas em dados.
           </p>
         </div>
         <div class="info-card">
-          <h3><i class="fas fa-check-circle"></i> A Solução</h3>
+          <h3><i class="fas fa-database"></i> O Dataset</h3>
           <p>
-            Processamento de dados do Kaggle com Engenharia de Variáveis para
-            criar métricas de utilização de limite e taxas de pagamento real
-            versus faturado.
+            Base de dados contendo score de crédito, localização geográfica,
+            gênero, idade, saldo e número de produtos de 10.000 clientes
+            bancários.
           </p>
         </div>
       </section>
 
-      <section class="insight-section">
-        <h2 class="section-title">Análise de Comportamento</h2>
+      <section id="insights">
+        <h2 class="sobre-titulo">Principais Insights</h2>
 
         <div class="insight-row">
           <div class="insight-text">
-            <span class="insight-number">01</span>
-            <h3>O Ponto de Inflexão: 3 Atrasos</h3>
+            <div class="insight-number">01</div>
+            <h3>Paradoxo do Número de Produtos</h3>
             <p>
-              A variável mais crítica identificada foi o histórico de atrasos. A
-              probabilidade de inadimplência sofre um salto estrutural após a
-              <strong>terceira fatura em atraso</strong>.
+              A análise revelou que clientes com 3 ou 4 produtos possuem uma
+              taxa de churn drasticamente maior (100% no grupo de 4 produtos). Isso indica possíveis problemas em vendas casadas ou
+              custos de manutenção acumulados.
             </p>
-            <ul class="highlights">
-              <li>Indicador chave para sistemas de alerta precoce.</li>
-              <li>Sugere perda de controle financeiro do cliente.</li>
-            </ul>
           </div>
           <div class="insight-visual">
-            <img
-              src="img/default_by_delay_payments.png"
-              alt="Gráfico de Atrasos"
-            />
+            <div class="insight-visual"></div>
+              <img src="img/churn_by_products.png" alt="Gráfico de Churn por Produtos"/>
+            </div>
           </div>
         </div>
 
         <div class="insight-row reverse">
           <div class="insight-text">
-            <span class="insight-number">02</span>
-            <h3>Utilização do Crédito</h3>
+            <div class="insight-number">02</div>
+            <h3>Faixa Etária Crítica</h3>
             <p>
-              Clientes que utilizam acima de
-              <strong>90% do limite</strong> possuem uma taxa de inadimplência
-              duas vezes maior que aqueles que consomem até 30%.
+              Clientes entre 40 e 60 anos apresentam a maior taxa de evasão.
+              Este insight sugere que o banco pode estar falhando em oferecer
+              produtos de investimento ou previdência que façam sentido para
+              este perfil de maturação financeira. A saída desses clientes causa uma queda de $75 milhões para o banco.
             </p>
           </div>
           <div class="insight-visual">
-            <img
-              src="img/default_by_utilization_limit.png"
-              alt="Gráfico de Utilização"
-            />
+            <div class="img-placeholder">
+              <img src="img/churn_by_age.png" alt="Gráfico de Churn por Idade"/>
+            </div>
           </div>
         </div>
+
+        <div class="insight-row">
+          <div class="insight-text">
+            <span class="insight-number">03</span>
+            <h3>Atividade do Cliente</h3>
+            <p>
+             Em todas as análises, a inatividade é um fator que dobra as chances do cliente abandonar o banco. Ou seja, clientes que não movimentam suas contas são muito mais propensos a cancelar os serviços em qualquer segemento análisado, como faixa etária, país, produtos.
+            </p>
+          </div>
+          <div class="insight-visual">
+            <div class="img-placeholder">
+              <img src="img/churn_by_status.png" alt="Gráfico de Churn por Status"/>
+            </div>
+          </div>
+        </div>
+        
+
       </section>
 
       <section class="conclusao-box">
-        <h2>Conclusão & Próximos Passos</h2>
+        <h2>Conclusão & Estratégias</h2>
         <div class="grid-three">
           <div class="conclusao-item">
-            <h4>Foco no Comportamento</h4>
+            <h4>Revisão de Produtos</h4>
             <p>
-              Variáveis dinâmicas superam dados estáticos (como idade/sexo) na
-              predição de risco.
+              Auditar a jornada de clientes com múltiplos produtos para
+              identificar atritos no suporte ou taxas abusivas.
             </p>
           </div>
           <div class="conclusao-item">
-            <h4>Thresholds</h4>
+            <h4>Fidelização 40+</h4>
             <p>
-              Definição de limites de risco automáticos para clientes com ≥3
-              atrasos.
+              Campanhas de retenção focadas nesse grupo, com benefícios em taxas de corretagem ou seguros. Essa estratégia pode ser aplicada somente na França e Alemanha que concentram 75% desses clientes.
             </p>
           </div>
           <div class="conclusao-item">
-            <h4>Modelagem</h4>
+            <h4>Alertas Antecipados</h4>
             <p>
-              Próxima etapa: Implementação de um modelo de Random Forest para
-              automação da análise.
+              Utilizar a queda de saldo e inatividade como gatilho para o time
+              de CS atuar antes da decisão final de cancelamento.
             </p>
           </div>
         </div>
       </section>
     </main>
+
+    <div class="action-buttons">
+      <a href="index.html" class="btn-modern back">
+        <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+      </a>
+      <a href="https://github.com/luispauloloubet/churn_analysis" class="btn-modern github">
+        <i class="fab fa-github"></i> Ver Repositório
+      </a>
+      <a href="#" class="btn-modern pdf">
+        <i class="fas fa-file-pdf"></i> Relatório Executivo
+      </a>
+    </div>
 
     <footer class="footer-contato">
       <hr class="divider" />
@@ -135,14 +156,12 @@
         <a href="https://wa.me/5567992562363"
           ><i class="fa-brands fa-whatsapp"></i
         ></a>
-        <a href="https://www.linkedin.com/in/luis-paulo-loubet-557712179"
+        <a
+          href="https://www.linkedin.com/in/luis-paulo-loubet-557712179"
+          target="_blank"
           ><i class="fa-brands fa-linkedin"></i
         ></a>
       </div>
     </footer>
-
-    <button class="back-to-top">↑</button>
-
-    <script src="script.js"></script>
   </body>
 </html>
